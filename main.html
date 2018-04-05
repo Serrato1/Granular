@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./style/granular.css">
+
+  </head>
+  <body>
+    <div class="nav-bar bg-green text-center color-white">
+      <div class="">URBAN </div>
+      <div class=""> </div>
+      <div class=""> </div>
+      <div class=""> </div>
+      <div class=""> </div>
+      <div class=""> </div>
+    </div>
+    <div class="grid-col-1 grid-row-5 text-center bg-light">
+      <div class="input-container position-item-center" style="width:200px">
+        <input type="text" placeholder="Search Word"/>
+      </div>
+      <div class="grid-row-1 grid-row-5 bg-green color-white edges-weak">
+        <div>Definition: Im awesome </div>
+        <div>Definition: Im awesome </div>
+      </div>
+
+    </div>
+    <!-- <div class="grid-col-10 grid-row-10 border-weak">
+      <div class = "border-weak">1</div>
+      <div class="border-weak">2</div>
+      <div class="border-weak">3</div>
+      <div class="border-weak">4</div>
+      <div class = "border-weak">5</div>
+      <div class="border-weak">6</div>
+      <div class="border-weak">7</div>
+      <div class="border-weak">8</div>
+      <div class="border-weak">9</div>
+      <div class="border-weak">10</div>
+    </div> -->
+    <script>
+      let nodes = document.body.childNodes;
+      nodes.forEach((node)=>{
+        // console.log(node);
+        if(typeof(node.attributes) !== 'undefined'){
+          if(typeof(node.attributes.class) !== 'undefined'){
+            let nodeClass = node.attributes.class.nodeValue ;
+              nodeClass.split(" ").map((clss)=>{
+                var expCol = /grid-col-/i;
+                var expRow = /grid-row-/i;
+                let colClass = clss.match(expCol);
+                // let rowClass = clss.match(expRow);
+                if(colClass !== null ){
+                  let colSize = colClass.input.substring(9,colClass.input.length);
+                  let inputClass = colClass.input ;
+                  // console.log(document.styleSheets);
+                  let dynamicStyle = document.createElement('style');
+                  dynamicStyle.innerHTML = `.${inputClass}{
+                    display:grid;
+                    grid-template-columns : repeat(${colSize}  ,1fr)
+                  }`;
+                  document.body.appendChild(dynamicStyle);
+                }
+              })
+
+          }
+        }
+      });
+    </script>
+
+  </body>
+</html>
