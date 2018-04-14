@@ -94,7 +94,7 @@ body{
 
 /*Grid Area Templates */
 /*Header-Side-Main-Footer */
-.template-base{
+.container{
   position:relative;
   display :grid;
   grid-template-columns: repeat(5,1fr);
@@ -119,7 +119,7 @@ body{
   grid-area: footer;
 }
 /*Camera App*/
-.template-body{
+.main-container{
   position:relative;
   display :grid;
   grid-template-columns: repeat(8,1fr);
@@ -132,13 +132,13 @@ body{
   height: calc(100vh);
 }
 /*---*/
-/* .checkout-container{
+.checkout-container{
   width:100%;
   height: 300px;
 }
 .search-container{
   height:50px;
-} */
+}
 .filler{
   grid-area: filler;
 }
@@ -519,7 +519,6 @@ body{
 .border-color-none{
   border-color: none;
 }
-
 /*Border Radius*/
 .edges-strong{
   border-radius: 20px;
@@ -564,10 +563,7 @@ body{
   -webkit-appearance:none;
 }
 
-/*BOX - Padding*/
-.padding-strong{
-  padding: 20px
-}
+
 
 /*Forms*/
 .input-container input{
